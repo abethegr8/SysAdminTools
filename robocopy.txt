@@ -1,0 +1,9 @@
+//Most of the details came from this website: https://ss64.com/nt/robocopy.html
+
+Example of a robocopy from Original Server to New Server along with Mirror Switches, ZB for restartable mode, XO to exclude older folders
+and files don't bother copying if it has an older date, R:1 means number of retries on failed copies, W:10 wait time in seconds between 
+retries, TEE is a logging option just logs out to window and a file, COPY:DATSOU copy is a copy flag in which uses all the flags 
+D=Data, A=Attributes, T=Timestamps S=Security=NTFS ACLs, O=Owner info, U=aUditing info and finally the Log flag in which we output 
+to a file location of the log. 
+
+robocopy "\\192.168.6.8\c$\SoftwareArchives\ThunderBay" "\\10.120.10.214\d$\Temp DB" /MIR /ZB /XO /R:1 /W:10 /TEE /COPY:DATSOU /log:c:\WideOrbit_Tools\logddrivebackups0418201917.txt
